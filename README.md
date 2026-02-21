@@ -80,4 +80,6 @@ Final Answer
 
 ## ▶️ How to Run
 
-1. Clone the repository:
+1. Clone the repository: 
+2. Install dependencies:
+3. Run the Streamlit app:

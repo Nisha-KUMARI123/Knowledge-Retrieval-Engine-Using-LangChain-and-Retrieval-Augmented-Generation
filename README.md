@@ -1,85 +1,72 @@
-# Knowledge-Retrieval-Engine-Using-LangChain-and-Retrieval-Augmented-Generation
-Knowledge Retrieval Engine built using LangChain and Retrieval-Augmented Generation (RAG) with FAISS vector database and LLM for context-aware question answering.
-# 🤖 Retrieval-Augmented Generation (RAG) System
+# PDF Intelligence System with Retrieval Augmented Generation (RAG)
 
-## 📌 Project Overview
-This project implements a Retrieval-Augmented Generation (RAG) based Question-Answering system. It allows users to upload documents (PDF, TXT, multiple files) and ask questions. The system retrieves relevant information using vector embeddings and generates accurate answers using a Large Language Model (LLM).
+## Overview
 
----
+The goal of this project is to create a user-centric and intelligent system that enhances information retrieval from PDF documents through natural language queries. The project focuses on streamlining the user experience by developing an intuitive interface, allowing users to interact with PDF content using language they are comfortable with. To achieve this, we leverage the Retrieval Augmented Generation (RAG) methodology introduced by Meta AI researchers.
 
-## 🎯 Problem Statement
-Large Language Models (LLMs) have knowledge limitations and may generate hallucinated answers. This project enhances LLM performance by integrating external knowledge retrieval, improving factual accuracy and context grounding.
 
----
+https://github.com/ArmaanSeth/ChatPDF/assets/99117431/2500f636-c66d-46ad-bb68-1d55f04ce753
 
-## 🧠 What is RAG?
-Retrieval-Augmented Generation (RAG) is a framework that:
-1. Retrieves relevant documents using vector similarity search.
-2. Passes retrieved context to an LLM.
-3. Generates accurate, context-aware answers.
 
----
+## Retrieval Augmented Generation (RAG)
 
-## ⚙️ System Architecture
+### Introduction
 
-User Query  
-↓  
-Embedding Model  
-↓  
-Vector Database (FAISS)  
-↓  
-Top-K Relevant Chunks  
-↓  
-LLM (Generator)  
-↓  
-Final Answer  
+RAG is a method designed to address knowledge-intensive tasks, particularly in information retrieval. It combines an information retrieval component with a text generator model to achieve adaptive and efficient knowledge processing. Unlike traditional methods that require retraining the entire model for knowledge updates, RAG allows for fine-tuning and modification of internal knowledge without extensive retraining.
 
----
+### Workflow
 
-## 🛠 Technologies Used
-- Python
-- LangChain
-- FAISS (Vector Store)
-- HuggingFace Transformers
-- Sentence Transformers
-- Streamlit (for Web UI)
-- PyPDFLoader
+1. **Input**: RAG takes multiple pdf as input.
+2. **VectoreStore**: The pdf's are then converted to vectorstore using FAISS and all-MiniLM-L6-v2 Embeddings model from Hugging Face.
+3. **Memory**: Conversation buffer memory is used to maintain a track of previous conversation which are fed to the llm model along with the user query.
+4. **Text Generation with GPT-3.5 Turbo**: The embedded input is fed to the GPT-3.5 Turbo model from the OpenAI API, which produces the final output.
+5. **User Interface**: Streamlit is used to create the interface for the application.
 
----
+### Benefits
 
-## 📂 Features
-- Multiple file upload support
-- PDF document processing
-- Text chunking with overlap
-- Semantic search using embeddings
-- Multi-language support
-- Context-aware response generation
-- Simple Streamlit UI
+- **Adaptability**: RAG adapts to situations where facts may evolve over time, making it suitable for dynamic knowledge domains.
+- **Efficiency**: By combining retrieval and generation, RAG provides access to the latest information without the need for extensive model retraining.
+- **Reliability**: The methodology ensures reliable outputs by leveraging both retrieval-based and generative approaches.
 
----
+## Project Features
 
-## 🔍 Workflow
+1. **User-friendly Interface**: An intuitive interface designed to accommodate natural language queries, simplifying the interaction with PDF documents.
 
-1. Load documents
-2. Split documents into chunks
-3. Generate embeddings
-4. Store embeddings in FAISS vector database
-5. Retrieve relevant chunks using similarity search
-6. Pass retrieved context to LLM
-7. Generate final response
+2. **Seamless Navigation**: The system streamlines information retrieval, reducing complexity and enhancing the overall user experience.
 
----
+## Getting Started
 
-## 📊 Advantages
-- Reduces hallucination
-- Improves factual correctness
-- Scalable to large documents
-- Works with private data
+To use the PDF Intelligence System:
+
+1. Clone the repository to your local machine.
+   ```bash
+   git clone https://github.com/ArmaanSeth/ChatPDF.git
+   ```
+
+2. Install dependencies.
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Run the application.
+   ```bash
+   streamlit run app.py
+   ```
+
+4. Open your browser and navigate to `http://localhost:8000` to access the user interface.
+
+## Contributing
+
+We welcome contributions to enhance the PDF Intelligence System. If you're interested in contributing, please follow our [Contribution Guidelines](CONTRIBUTING.md).
+
+## License
+
+This project is licensed under the [Apache License](LICENSE).
+
+## Acknowledgments
+
+We would like to express our gratitude to the Hugging Face community for the all-MiniLM-L6-v2 Embeddings model, and OpenAI for providing the GPT-3.5 Turbo model through their API.
 
 ---
 
-## ▶️ How to Run
-
-1. Clone the repository: 
-2. Install dependencies:
-3. Run the Streamlit app:
+Feel free to explore and enhance the capabilities of the PDF Intelligence System. Happy querying!
